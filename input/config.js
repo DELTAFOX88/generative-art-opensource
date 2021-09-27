@@ -22,7 +22,7 @@ const addRarity = (_id, _from, _to) => {
 
 // get the name without last 4 characters -> slice .png from the name
 const cleanName = (_str) => {
-  let name = _str.slice(0, -4);
+  let name = _str.slice(0, -1);
   return name;
 };
 
@@ -115,18 +115,18 @@ const addRarityPercentForLayer = (_rarityId, _layerId, _percentages) => {
  *************************************************************/
 
 // image width in pixels
-const width = 1000;
+const width = 512;
 // image height in pixels
-const height = 1000;
+const height = 512;
 // description for NFT in metadata file
 const description = "This is an NFT made by the coolest generative code.";
 // base url to use in metadata file
 // the id of the nft will be added to this url, in the example e.g. https://hashlips/nft/1 for NFT with id 1
-const baseImageUri = "https://hashlips/nft";
+const baseImageUri = "https://fist.firstsupernet.com/nile-higgins/skeleton-pirates";
 // id for edition to start from
 const startEditionFrom = 1;
 // amount of NFTs to generate in edition
-const editionSize = 10;
+const editionSize = 2000;
 // prefix to add to edition dna ids (to distinguish dna counts from different generation processes for the same collection)
 const editionDnaPrefix = 0
 
@@ -142,12 +142,12 @@ let rarityWeights = [
 // for each layer, call 'addLayer' with the id and optionally the positioning and size
 // the id would be the name of the folder in your input directory, e.g. 'ball' for ./input/ball
 const layers = [
-  addLayer('ball', { x: 0, y: 0 }, { width: width, height: height }),
+  addLayer('bg', { x: 0, y: 0 }, { width: width, height: height }),
+  addLayer('skull'),
+  addLayer('ball'),
   addLayer('eye color'),
   addLayer('iris'),
-  addLayer('shine'),
-  addLayer('bottom lid'),
-  addLayer('top lid')
+  addLayer('goo')
 ];
 
 // provide any specific percentages that are required for a given layer and rarity level
